@@ -68,6 +68,19 @@
   padding: 8px 24px;
   border-radius: 4px;
   background-color: #A6ADFF;
+  border: 2px solid transparent;
+  transition-property: color, background-color;
+  transition-duration: .2s;
+  transition-timing-function: ease-in-out;
+}
+
+.filter__button:focus-visible {
+  border-color: #4F58BE;
+}
+
+.filter__button:hover {
+  color: #fff;
+  background-color: #2A18FF;
 }
 
 @media (max-width: 940px) {

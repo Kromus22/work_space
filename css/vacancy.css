@@ -7,6 +7,17 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  outline: none;
+  border: 2px solid transparent;
+  transition: background-color .2s ease-in-out;
+}
+
+.vacancy:hover {
+  background-color: #F9FAFF;
+}
+
+.vacancy:focus-visible {
+  border-color: #A6ADFF;
 }
 
 .vacancy__img {

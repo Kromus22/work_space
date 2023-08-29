@@ -159,10 +159,49 @@ const observer = new IntersectionObserver(
   {
     rootMargin: '100px'
   }
-)
+);
+
+const openFilter = (btn, dropdown, classNameBtn, classNameDropdown) => {
+  dropdown.style.height = `${dropdown.scrollHeight}px`;
+  btn.classList.add(classNameBtn);
+  dropdown.classList.add(classNameDropdown);
+}
+
+const closeFilter = (btn, dropdown, classNameBtn, classNameDropdown) => {
+  btn.classList.remove(classNameBtn);
+  dropdown.classList.remove(classNameDropdown);
+  dropdown.style.height = '';
+}
 
 const init = () => {
   const filterForm = document.querySelector('.filter__form');
+  const vacanciesFilterBtn = document.querySelector('.vacancies__filter-btn');
+  const vacanciesFilter = document.querySelector('.vacancies__filter');
+
+  vacanciesFilterBtn.addEventListener('click', () => {
+    if (vacanciesFilterBtn.classList.contains('vacancies__filter-btn_active')) {
+      closeFilter(
+        vacanciesFilterBtn,
+        vacanciesFilter,
+        'vacancies__filter-btn_active',
+        'vacancies__filter_active'
+      );
+    } else {
+      openFilter(
+        vacanciesFilterBtn,
+        vacanciesFilter,
+        'vacancies__filter-btn_active',
+        'vacancies__filter_active'
+      );
+    }
+
+  });
+
+  window.addEventListener('resize', () => {
+    if (vacanciesFilterBtn.classList.contains('vacancies__filter-btn_active')) {
+      vacanciesFilter.style.height = `${vacanciesFilter.scrollHeight}px`;
+    }
+  });
 
   const citySelect = document.querySelector('#city');
   const cityChoices = new Choices(citySelect, {
@@ -201,6 +240,15 @@ const init = () => {
     if (vacancyCard) {
       const vacancyId = vacancyCard.dataset.id;
       openModal(vacancyId);
+    }
+  });
+
+  cardsList.addEventListener('keydown', ({ code, target }) => {
+    const vacancyCard = target.closest('.vacancy')
+    if ((code === 'Enter' || code === 'NumpadEnter') && vacancyCard) {
+      const vacancyId = vacancyCard.dataset.id;
+      openModal(vacancyId);
+      target.blur();
     }
   });
 

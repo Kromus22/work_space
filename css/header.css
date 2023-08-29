@@ -14,6 +14,19 @@
   font-size: 20px;
   border-radius: 8px;
   background-color: #A6ADFF;
+  border: 2px solid transparent;
+  transition-property: color, background-color;
+  transition-duration: .2s;
+  transition-timing-function: ease-in-out;
+}
+
+.header__link:focus-visible {
+  border-color: #4F58BE;
+}
+
+.header__link:hover {
+  color: #fff;
+  background-color: #2A18FF;
 }
 
 @media (max-width: 1140px) {
