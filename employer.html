@@ -13,8 +13,11 @@
 <body>
   <header class="header">
     <div class="container header__container">
-      <img class="header__logo" src="img/logo.svg" alt="Логотип компании">
-      <a class="header__link" href="#vacancies">Посмотреть вакансии</a>
+      <a href="index.html">
+        <img class="header__logo" src="img/logo.svg" alt="Логотип компании">
+      </a>
+
+      <a class="header__link" href="index.html#vacancies">Посмотреть вакансии</a>
     </div>
   </header>
 
@@ -31,39 +34,39 @@
 
             <div class="file__wrap-btn">
               <label class="file__label" for="logo">+ загрузить лого</label>
-              <input class="file__input" type="file" id="logo" accept="image/png, image/jpeg" name="logo">
+              <input class="file__input" type="file" id="logo" accept="image/png, image/jpeg" name="logo" required>
             </div>
 
-            <fieldset class="employer__fieldset-input">
+            <fieldset class="employer__fieldset employer__fieldset_input">
               <div class="employer__wrap-input">
-                <label class="imployer__label" for="company">Название компании</label>
+                <label class="employer__label" for="company">Название компании</label>
                 <input class="employer__input" type="text" id="company" name="company" placeholder="Например: SBER">
               </div>
 
               <div class="employer__wrap-input">
-                <label class="imployer__label" for="title">Название вакансии</label>
+                <label class="employer__label" for="title">Название вакансии</label>
                 <input class="employer__input" type="text" id="title" name="title"
                   placeholder="Например: Frontend-разработчик">
               </div>
 
               <div class="employer__wrap-input">
-                <label class="imployer__label" for="salary">Заработная плата, руб/мес</label>
+                <label class="employer__label" for="salary">Заработная плата, руб/мес</label>
                 <input class="employer__input" type="number" id="salary" name="salary" placeholder="80 000 ₽">
               </div>
 
               <div class="employer__wrap-input">
-                <label class="imployer__label" for="location">Город</label>
+                <label class="employer__label" for="location">Город</label>
                 <input class="employer__input" type="text" id="location" name="location" placeholder="Например: Москва">
               </div>
 
               <div class="employer__wrap-input">
-                <label class="imployer__label" for="email">E-mail</label>
+                <label class="employer__label" for="email">E-mail</label>
                 <input class="employer__input" type="email" id="email" name="email"
                   placeholder="Добавьте e-mail для связи">
               </div>
             </fieldset>
 
-            <fieldset class="employer__fieldset-textarea">
+            <fieldset class="employer__fieldset">
               <label class="employer__label" for="description">Описание вакансии</label>
               <textarea class="employer__textarea" name="description" id="description"
                 placeholder="Добавьте всю необходимую для соискателя информацию"></textarea>
