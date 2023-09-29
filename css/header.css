@@ -7,6 +7,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .header__links {
@@ -21,6 +23,7 @@
   border-radius: 8px;
   background-color: #A6ADFF;
   border: 2px solid transparent;
+  text-align: center;
   transition-property: color, background-color;
   transition-duration: .2s;
   transition-timing-function: ease-in-out;
@@ -62,4 +65,17 @@
     padding: 24px 0 20px;
   }
 
+  .header__container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header__links {
+    max-width: 290px;
+  }
+
+  .header__link {
+    width: 100%;
+  }
 }

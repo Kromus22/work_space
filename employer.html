@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Work Space</title>
   <link rel="stylesheet" href="css/index.css">
-  <script src="js/choices.min.js" defer></script>
+  <script src="js/just-validate.min.js" defer></script>
   <script src="js/script.js" defer></script>
 </head>
 
@@ -73,7 +73,7 @@
             </fieldset>
 
             <div class="employer__radio-buttons">
-              <fieldset class="employer__fieldset-radio">
+              <fieldset class="employer__fieldset-radio" id="format">
                 <legend class="employer__legend">Формат</legend>
 
                 <label class="employer__label-radio radio">
@@ -89,7 +89,7 @@
                 </label>
               </fieldset>
 
-              <fieldset class="employer__fieldset-radio">
+              <fieldset class="employer__fieldset-radio" id="experience">
                 <legend class="employer__legend">Опыт работы</legend>
 
                 <label class="employer__label-radio radio">
@@ -111,7 +111,7 @@
                 </label>
               </fieldset>
 
-              <fieldset class="employer__fieldset-radio">
+              <fieldset class="employer__fieldset-radio" id="type">
                 <legend class="employer__legend">Занятость</legend>
 
                 <label class="employer__label-radio radio">
@@ -136,7 +136,7 @@
             <div class="employer__wrap-submit">
               <button class="employer__submit">Добавить вакансию</button>
               <div class="employer__error">
-                <p>Ошибка. Заполните все поля</p>
+
               </div>
             </div>
           </div>
