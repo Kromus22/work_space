@@ -34,6 +34,8 @@
   border: 0;
   height: 32px;
   width: 100%;
+  outline: 0;
+  border: 1px solid transparent;
 }
 
 .employer__input::placeholder {
@@ -47,6 +49,18 @@
   resize: vertical;
   border: 0;
   padding: 7px 16px;
+  outline: 0;
+  border: 1px solid transparent;
+}
+
+.employer__input.invalid,
+.employer__textarea.invalid {
+  border-color: #F00;
+}
+
+.employer__input:focus-visible,
+.employer__textarea:focus-visible {
+  border-color: #A6ADFF;
 }
 
 .employer__radio-buttons {

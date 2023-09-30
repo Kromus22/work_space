@@ -1,4 +1,4 @@
-const API_URL = "https://workspace-methed.vercel.app/";
+const API_URL = "https://zircon-immediate-pufferfish.glitch.me/";
 const LOCATION_URL = "api/locations";
 const VACANCY_URL = "api/vacancy";
 const BOT_TOKEN = '6501952909:AAEuiSBIoriPuyYdFnCe8JBtKkokiS0FZE0';
@@ -313,6 +313,10 @@ const init = () => {
         errorLabelStyle: {
           color: '#f00'
         },
+        errorFieldStyle: {
+          borderColor: '#f00'
+        },
+        errorFieldCssClass: 'invalid',
         errorsContainer: document.querySelector('.employer__error')
       });
 
@@ -364,6 +368,10 @@ const init = () => {
           {
             rule: 'required',
             errorMessage: 'Заполните email'
+          },
+          {
+            rule: 'email',
+            errorMessage: 'Введите корректный email'
           }
         ])
         .addField('#description', [
@@ -375,6 +383,8 @@ const init = () => {
         .addRequiredGroup('#format', 'Выберите формат работы')
         .addRequiredGroup('#experience', 'Выберите опыт работы')
         .addRequiredGroup('#type', 'Выберите занятость');
+
+      return validate;
     };
 
     const fileController = () => {
@@ -399,11 +409,37 @@ const init = () => {
 
     const formController = () => {
       const form = document.querySelector('.employer__form');
+      const employerError = document.querySelector('.employer__error');
+
+      const validate = validationForm(form);
 
       validationForm(form);
 
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        if (!validate.isValid) {
+          return
+        }
+
+        try {
+          const formData = new FormData(form);
+          employerError.textContent = 'Отправка вакансии на сервер. Ожидайте.';
+          const response = await fetch(`${API_URL}${VACANCY_URL}`, {
+            method: 'POST',
+            body: formData,
+          });
+
+          if (response.ok) {
+            employerError.textContent = '';
+
+            window.location.href = 'index.html';
+          }
+        } catch (error) {
+          employerError.textContent = 'Произошла ошибка, попробуйте позже. :(';
+
+          console.error(error);
+        }
 
       });
     };
